@@ -15,5 +15,5 @@
 homepage: "https://www.triadctv.com"
 documentation: "https://github.com/triad-ctv/gtm-template"
 versions:
-  - sha: 306acdb1c28bf782b1f109bb8221b8dea3b01a8e
+  - sha: 39a0a5d2fa8b814fa6321193bd219fca053af9fb
     changeNotes: Initial Version
