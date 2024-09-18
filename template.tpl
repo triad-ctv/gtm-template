@@ -142,7 +142,7 @@ const log = require('logToConsole'),
       sendPixel = require('sendPixel'),
       getUrl = require('getUrl'),
       injectHiddenIframe = require('injectHiddenIframe'),
-      encodeUri = require('encodeUri');
+      encodeUriComponent = require('encodeUriComponent');
 
 log("data = ", data);
 
@@ -178,7 +178,7 @@ function buildSrc1 () {
 
   const src = 'https://insight.adsrvr.org/track/up' + 
               '?adv=' + data.advertiserId + 
-              '&ref=' + encodeUri(url) +
+              '&ref=' + encodeUriComponent(url) +
               '&upid=' + data.pixelId +
               '&upv=' + '1.1.3' +
               dynParams;
