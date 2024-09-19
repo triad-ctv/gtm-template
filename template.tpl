@@ -139,7 +139,6 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
 const log = require('logToConsole'),
       queryPermission = require('queryPermission'),
-      sendPixel = require('sendPixel'),
       getUrl = require('getUrl'),
       injectHiddenIframe = require('injectHiddenIframe'),
       encodeUriComponent = require('encodeUriComponent');
@@ -154,14 +153,14 @@ if ((data.advertiserId === undefined || data.pixelId === undefined) && data.acti
 
 const src1 = buildSrc1();
 if (src1 !== undefined) {
-  sendPixel(src1);
-  log('Pixel sent');
+  injectHiddenIframe(src1);
+  log('iFrame 1 written');
 }
 
 const src2 = buildSrc2();
 if (src2 !== undefined) {
   injectHiddenIframe(src2);
-  log('iFrame written');
+  log('iFrame 2 written');
 }
 
 data.gtmOnSuccess();
@@ -237,39 +236,6 @@ ___WEB_PERMISSIONS___
   {
     "instance": {
       "key": {
-        "publicId": "send_pixel",
-        "versionId": "1"
-      },
-      "param": [
-        {
-          "key": "allowedUrls",
-          "value": {
-            "type": 1,
-            "string": "specific"
-          }
-        },
-        {
-          "key": "urls",
-          "value": {
-            "type": 2,
-            "listItem": [
-              {
-                "type": 1,
-                "string": "https://insight.adsrvr.org/track/up*"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    "clientAnnotations": {
-      "isEditedByUser": true
-    },
-    "isRequired": true
-  },
-  {
-    "instance": {
-      "key": {
         "publicId": "get_url",
         "versionId": "1"
       },
@@ -310,6 +276,10 @@ ___WEB_PERMISSIONS___
               {
                 "type": 1,
                 "string": "https://tags.w55c.net/rs?id\u003d*"
+              },
+              {
+                "type": 1,
+                "string": "https://insight.adsrvr.org/track/up*"
               }
             ]
           }
