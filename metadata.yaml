@@ -15,5 +15,11 @@
 homepage: "https://www.triadctv.com"
 documentation: "https://github.com/triad-ctv/gtm-template"
 versions:
+  #Latest Version
+  - sha: 180ea5cc3ee40a5d5049393f5930656596b1183f
+    changeNotes: |2
+      improve URI encoding by switching to encodeUriComponent
+      replace sendPixel with injectHiddenIframe for src1
+  #Older Versions
   - sha: 4b9c6f55f3d19782338a16dd95450d25c9381556
     changeNotes: Initial Version
